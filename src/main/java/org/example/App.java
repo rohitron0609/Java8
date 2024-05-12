@@ -20,7 +20,8 @@ public class App
 //        System.out.println(charFreq("Java Concept Of The Day"));
 //        System.out.println(elementFreq(Arrays.asList("Pen", "Eraser", "Note Book", "Pen", "Pencil", "Stapler", "Note Book", "Pencil")));
 //        System.out.println(sortList(Arrays.asList(12.45, 23.58, 17.13, 42.89, 33.78, 71.85, 56.98, 21.12)));
-        System.out.println(joinStrings(Arrays.asList("Facebook", "Twitter", "YouTube", "WhatsApp", "LinkedIn")));
+//        System.out.println(multiplesOf5(input));
+        System.out.println(maxOfList(input) + " " + minOfList(input));
     }
 
     public static List<Integer> oddNumbers(List<Integer> input){
@@ -61,6 +62,23 @@ public class App
     }
 
     public static String joinStrings(List<String> input){
-        return input.stream().collect(Collectors.joining(",","[","]"));
+        return input
+                .stream()
+                .collect(Collectors.joining(",","[","]"));
+    }
+
+    public static List<Integer> multiplesOf5(List<Integer> input){
+        return input
+                .stream()
+                .filter( n -> (n % 5) == 0)
+                .collect(Collectors.toList());
+    }
+
+    public static int maxOfList(List<Integer> input){
+        return input.stream().max(Comparator.naturalOrder()).get();
+    }
+
+    public static int minOfList(List<Integer> input){
+        return input.stream().min(Comparator.naturalOrder()).get();
     }
 }
