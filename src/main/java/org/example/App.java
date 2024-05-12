@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * Hello world!
@@ -24,9 +25,9 @@ public class App
 //        System.out.println(multiplesOf5(input));
 //        System.out.println(maxOfList(input) + " " + minOfList(input));
 //        System.out.println(mergeSortedArrayDistinct(new int[]{4,2,7,1,3},new int[]{8,3,9,5,1}));
-        System.out.println(nmaxElements(input, 4));
-        System.out.println(nminElements(input, 4));
-
+//        System.out.println(nmaxElements(input, 4));
+//        System.out.println(nminElements(input, 4));
+        System.out.println(AnagramCheck("RaceCar","CarRace"));
     }
 
     public static List<Integer> oddNumbers(List<Integer> input){
@@ -110,4 +111,15 @@ public class App
         return input.stream().sorted(Comparator.naturalOrder()).limit(n).collect(Collectors.toList());
     }
 
+    public static Boolean AnagramCheck(String s1, String s2){
+        s1 = Stream.of(s1.split(""))
+                .map(String::toUpperCase)
+                .sorted()
+                .collect(Collectors.joining());
+        s2 = Stream.of(s2.split(""))
+                .map(String::toUpperCase)
+                .sorted()
+                .collect(Collectors.joining());
+        return s1.equals(s2);
+    }
 }
