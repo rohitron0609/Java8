@@ -23,7 +23,10 @@ public class App
 //        System.out.println(sortList(Arrays.asList(12.45, 23.58, 17.13, 42.89, 33.78, 71.85, 56.98, 21.12)));
 //        System.out.println(multiplesOf5(input));
 //        System.out.println(maxOfList(input) + " " + minOfList(input));
-        System.out.println(mergeSortedArrayDistinct(new int[]{4,2,7,1,3},new int[]{8,3,9,5,1}));
+//        System.out.println(mergeSortedArrayDistinct(new int[]{4,2,7,1,3},new int[]{8,3,9,5,1}));
+        System.out.println(nmaxElements(input, 4));
+        System.out.println(nminElements(input, 4));
+
     }
 
     public static List<Integer> oddNumbers(List<Integer> input){
@@ -98,4 +101,13 @@ public class App
                 .distinct()
                 .toArray());
     }
+
+    public static List<Integer> nmaxElements(List<Integer> input, int n){
+        return input.stream().sorted(Comparator.reverseOrder()).limit(n).collect(Collectors.toList());
+    }
+
+    public static List<Integer> nminElements(List<Integer> input, int n){
+        return input.stream().sorted(Comparator.naturalOrder()).limit(n).collect(Collectors.toList());
+    }
+
 }
