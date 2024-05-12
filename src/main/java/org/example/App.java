@@ -17,8 +17,9 @@ public class App
 //        System.out.print(oddNumbers(input));
 //        System.out.println(evenNumbers(input));
 //        System.out.println(removeDupes(input));
-        System.out.println(charFreq("Java Concept Of The Day"));
-        System.out.println(elementFreq(Arrays.asList("Pen", "Eraser", "Note Book", "Pen", "Pencil", "Stapler", "Note Book", "Pencil")));
+//        System.out.println(charFreq("Java Concept Of The Day"));
+//        System.out.println(elementFreq(Arrays.asList("Pen", "Eraser", "Note Book", "Pen", "Pencil", "Stapler", "Note Book", "Pencil")));
+        System.out.println(sortList(Arrays.asList(12.45, 23.58, 17.13, 42.89, 33.78, 71.85, 56.98, 21.12)));
     }
 
     public static List<Integer> oddNumbers(List<Integer> input){
@@ -51,4 +52,10 @@ public class App
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 
+    public static List<Double> sortList(List<Double> input){
+        return input
+                .stream()
+                .sorted(Comparator.reverseOrder())
+                .collect(Collectors.toList());
+    }
 }
