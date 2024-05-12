@@ -4,6 +4,7 @@ import java.sql.SQLOutput;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Hello world!
@@ -21,7 +22,8 @@ public class App
 //        System.out.println(elementFreq(Arrays.asList("Pen", "Eraser", "Note Book", "Pen", "Pencil", "Stapler", "Note Book", "Pencil")));
 //        System.out.println(sortList(Arrays.asList(12.45, 23.58, 17.13, 42.89, 33.78, 71.85, 56.98, 21.12)));
 //        System.out.println(multiplesOf5(input));
-        System.out.println(maxOfList(input) + " " + minOfList(input));
+//        System.out.println(maxOfList(input) + " " + minOfList(input));
+        System.out.println(mergeSortedArray(new int[]{4,2,7,1},new int[]{8,3,9,5}));
     }
 
     public static List<Integer> oddNumbers(List<Integer> input){
@@ -80,5 +82,9 @@ public class App
 
     public static int minOfList(List<Integer> input){
         return input.stream().min(Comparator.naturalOrder()).get();
+    }
+
+    public static String mergeSortedArray(int[] a, int[] b){
+        return Arrays.toString(IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().toArray());
     }
 }
