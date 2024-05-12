@@ -27,7 +27,8 @@ public class App
 //        System.out.println(mergeSortedArrayDistinct(new int[]{4,2,7,1,3},new int[]{8,3,9,5,1}));
 //        System.out.println(nmaxElements(input, 4));
 //        System.out.println(nminElements(input, 4));
-        System.out.println(AnagramCheck("RaceCar","CarRace"));
+//        System.out.println(AnagramCheck("RaceCar","CarRace"));
+        System.out.println(sumOfDigits(15623));
     }
 
     public static List<Integer> oddNumbers(List<Integer> input){
@@ -121,5 +122,9 @@ public class App
                 .sorted()
                 .collect(Collectors.joining());
         return s1.equals(s2);
+    }
+
+    public static int sumOfDigits(int n){
+        return Stream.of(String.valueOf(n).split("")).collect(Collectors.summingInt(Integer::parseInt));
     }
 }
